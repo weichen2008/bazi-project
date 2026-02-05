@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, User, ArrowRight, Zap, MapPin } from 'lucide-react';
@@ -28,7 +28,7 @@ const Home = () => {
     },
   });
 
-  const [isDateFocused, setIsDateFocused] = useState(false);
+  const dateInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -157,19 +157,33 @@ const Home = () => {
               </div>
             </div>
             <div className="relative">
-              <Calendar className="absolute left-3 top-3.5 w-5 h-5 text-slate-200" />
+              <Calendar className="absolute left-3 top-3.5 w-5 h-5 text-slate-200 z-10" />
+              {/* Visible Input (Read Only) */}
               <input
-                type={formData.birthDate || isDateFocused ? "date" : "text"}
+                type="text"
+                readOnly
                 placeholder="年/月/日"
-                onFocus={() => setIsDateFocused(true)}
-                onBlur={() => setIsDateFocused(false)}
-                max="9999-12-31"
+                value={formData.birthDate}
                 className="cyber-input pl-12"
+              />
+              {/* Invisible Trigger */}
+              <input
+                type="date"
+                ref={dateInputRef}
+                max="9999-12-31"
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
                 value={formData.birthDate}
                 onChange={(e) => {
                   const val = e.target.value;
                   if (val && val.split('-')[0].length > 4) return;
                   setFormData({ ...formData, birthDate: val });
+                }}
+                onClick={(e) => {
+                  try {
+                    e.currentTarget.showPicker();
+                  } catch (error) {
+                    // ignore if not supported
+                  }
                 }}
               />
             </div>
