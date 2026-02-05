@@ -177,10 +177,14 @@ const Report = () => {
             <span key={i} className={`text-[9px] ${getElementColor(g)}`}>{g}</span>
           ))}
         </div>
-        <div className="mt-2 min-w-[32px] w-full h-6 flex items-center justify-center bg-slate-900/50 rounded-lg border border-slate-700/50 px-1">
-           <span className="text-[9px] font-medium text-slate-300">
-             {pillar.shishen}
-           </span>
+        <div className="mt-2 w-full h-6 table border-collapse bg-slate-900/50 rounded-lg border border-slate-700/50">
+           <div className="table-row">
+             <div className="table-cell align-middle text-center">
+               <span className="text-[9px] font-medium text-slate-300 block">
+                 {pillar.shishen}
+               </span>
+             </div>
+           </div>
         </div>
       </div>
     );
@@ -195,17 +199,19 @@ const Report = () => {
               {/* Left: Name & Attribute */}
               <div className="flex flex-col items-start gap-2">
                 <h2 className="text-3xl font-bold text-white tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-none">{name}</h2>
-                <div className="flex flex-row items-center whitespace-nowrap min-w-max bg-black/60 backdrop-blur-md px-3 h-8 rounded-xl border border-white/10 shadow-lg">
-                    <div className={`w-4 h-full flex flex-shrink-0 items-center justify-center mr-2 ${getElementColor(dayMasterElement)}`}>
-                       {dayMasterElement === '木' ? <Leaf className="w-4 h-4" /> :
-                        dayMasterElement === '火' ? <Flame className="w-4 h-4" /> :
-                        dayMasterElement === '土' ? <Mountain className="w-4 h-4" /> :
-                        dayMasterElement === '金' ? <Shield className="w-4 h-4" /> :
-                        <Droplets className="w-4 h-4" />}
+                <div className="table border-collapse bg-black/60 backdrop-blur-md h-8 rounded-xl border border-white/10 shadow-lg px-3">
+                    <div className="table-row">
+                      <div className={`table-cell align-middle w-4 pr-2 ${getElementColor(dayMasterElement)}`}>
+                         {dayMasterElement === '木' ? <Leaf className="w-4 h-4" /> :
+                          dayMasterElement === '火' ? <Flame className="w-4 h-4" /> :
+                          dayMasterElement === '土' ? <Mountain className="w-4 h-4" /> :
+                          dayMasterElement === '金' ? <Shield className="w-4 h-4" /> :
+                          <Droplets className="w-4 h-4" />}
+                      </div>
+                      <div className="table-cell align-middle text-xs text-white/90 font-bold whitespace-nowrap">
+                        {dayMasterElement}命
+                      </div>
                     </div>
-                    <span className="text-xs text-white/90 font-bold h-full flex items-center pt-[1px]">
-                      {dayMasterElement}命
-                    </span>
                 </div>
               </div>
 
