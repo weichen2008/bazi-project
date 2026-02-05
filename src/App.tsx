@@ -4,7 +4,7 @@ import Report from './pages/Report';
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary selection:text-white">
         <Routes>
           <Route path="/" element={<Home />} />
