@@ -4,7 +4,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/bazi-project/' : '/',
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {
