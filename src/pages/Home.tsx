@@ -28,6 +28,8 @@ const Home = () => {
     },
   });
 
+  const [isDateFocused, setIsDateFocused] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -157,7 +159,10 @@ const Home = () => {
             <div className="relative">
               <Calendar className="absolute left-3 top-3.5 w-5 h-5 text-slate-200" />
               <input
-                type="date"
+                type={formData.birthDate || isDateFocused ? "date" : "text"}
+                placeholder="年/月/日"
+                onFocus={() => setIsDateFocused(true)}
+                onBlur={() => setIsDateFocused(false)}
                 max="9999-12-31"
                 className="cyber-input pl-12"
                 value={formData.birthDate}
