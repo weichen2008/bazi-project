@@ -177,8 +177,8 @@ const Report = () => {
             <span key={i} className={`text-[9px] ${getElementColor(g)}`}>{g}</span>
           ))}
         </div>
-        <div className="mt-2 min-w-[32px] flex items-center justify-center bg-slate-900/50 rounded-lg border border-slate-700/50 px-2 py-1">
-           <span className="text-[9px] font-medium text-slate-300 text-center leading-none">
+        <div className="mt-2 min-w-[32px] w-full text-center bg-slate-900/50 rounded-lg border border-slate-700/50 px-2 py-1">
+           <span className="text-[9px] font-medium text-slate-300 inline-block w-full text-center leading-none">
              {pillar.shishen}
            </span>
         </div>
@@ -203,7 +203,7 @@ const Report = () => {
                         dayMasterElement === '金' ? <Shield className="w-4 h-4" /> :
                         <Droplets className="w-4 h-4" />}
                     </div>
-                    <span className="text-xs text-white/90 font-bold leading-none">
+                    <span className="text-xs text-white/90 font-bold leading-[16px] block h-4">
                       {dayMasterElement}命
                     </span>
                 </div>
