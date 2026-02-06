@@ -275,6 +275,9 @@ export const calculateBazi = (input: UserInput): BaziReport => {
         const yearGanEle = getWuXing(yearGan);
         const yearZhiEle = getWuXing(yearZhi);
 
+        // Check if this year is the start of a DaYun
+        const isDaYunStart = y === daYun.startYear;
+
         // Calculate Score
         const yearlyScoreRaw = calculateLuckScore(yearGanEle, yearZhiEle, dayMasterElement, isStrong);
         
@@ -294,7 +297,9 @@ export const calculateBazi = (input: UserInput): BaziReport => {
             gan: yearGan,
             zhi: yearZhi,
             score: Math.round(finalScore),
-            daYun: `${daYun.gan}${daYun.zhi}`
+            daYun: `${daYun.gan}${daYun.zhi}`,
+            isDaYunStart,
+            daYunStartScore: isDaYunStart ? Math.round(finalScore) : undefined
         });
     }
   }

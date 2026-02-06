@@ -56,6 +56,8 @@ export interface YearlyLuck {
   zhi: string;
   score: number;
   daYun: string;
+  isDaYunStart?: boolean;
+  daYunStartScore?: number; // Helper for chart visualization
 }
 
 export interface BaziReport {

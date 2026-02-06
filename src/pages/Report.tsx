@@ -415,7 +415,7 @@ const Report = () => {
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart
                   data={currentReport.yearlyLuck || []}
-                  margin={{ top: 20, right: 10, left: -20, bottom: 40 }}
+                  margin={{ top: 20, right: 20, left: 20, bottom: 40 }}
                 >
                   <defs>
                     <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
@@ -423,8 +423,8 @@ const Report = () => {
                       <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0.1}/>
                     </linearGradient>
                     <linearGradient id="daYunBarGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#6d28d9" stopOpacity={0.9}/>
-                      <stop offset="100%" stopColor="#6d28d9" stopOpacity={0.2}/>
+                      <stop offset="0%" stopColor="#fbbf24" stopOpacity={0.9}/>
+                      <stop offset="100%" stopColor="#fbbf24" stopOpacity={0.2}/>
                     </linearGradient>
                     <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
                       <stop offset="0%" stopColor="#06b6d4" />
@@ -477,18 +477,19 @@ const Report = () => {
                 {/* Bars for Yearly Luck */}
                 <Bar 
                    dataKey="score" 
-                   barSize={4} 
+                   barSize={6} 
                    radius={[2, 2, 0, 0]}
                    isAnimationActive={true}
                 >
                   {
                     (currentReport.yearlyLuck || []).map((entry, index) => {
                       // Check if this year is a DaYun start year
-                       const isDaYunStart = currentReport.luckPillars.some(p => p.startYear === entry.year);
+                       const isDaYunStart = entry.isDaYunStart;
                        return (
                          <Cell 
                            key={`cell-${index}`} 
                            fill={isDaYunStart ? 'url(#daYunBarGradient)' : 'url(#barGradient)'}
+                           fillOpacity={isDaYunStart ? 1 : 0.6}
                          />
                        );
                      })
