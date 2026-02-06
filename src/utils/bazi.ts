@@ -264,7 +264,9 @@ export const calculateBazi = (input: UserInput): BaziReport => {
 
     for (let y = startYear; y < endYear; y++) {
         const daYun = getDaYunForYear(y);
-        const age = y - input.birthDate.split('-').map(Number)[0]; // Approx age
+        // Calculate nominal age (Xu Sui) to align with Luck Pillars which usually use Xu Sui
+        const birthYear = input.birthDate.split('-').map(Number)[0];
+        const age = y - birthYear + 1; 
         
         // Use Lunar to get Yearly Pillar
         const lunarYear = Lunar.fromYmd(y, 6, 15); 
