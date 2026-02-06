@@ -423,8 +423,8 @@ const Report = () => {
                       <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0.1}/>
                     </linearGradient>
                     <linearGradient id="daYunBarGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#fbbf24" stopOpacity={0.9}/>
-                      <stop offset="100%" stopColor="#fbbf24" stopOpacity={0.2}/>
+                      <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.8}/>
+                      <stop offset="100%" stopColor="#3b82f6" stopOpacity={0.1}/>
                     </linearGradient>
                     <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
                       <stop offset="0%" stopColor="#06b6d4" />
