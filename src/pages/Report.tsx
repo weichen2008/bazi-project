@@ -195,17 +195,15 @@ const Report = () => {
               {/* Left: Name & Attribute */}
               <div className="flex flex-col items-start gap-2">
                 <h2 className="text-3xl font-bold text-white tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-none">{name}</h2>
-                <div className="bg-black/60 backdrop-blur-md h-8 w-[100px] rounded-xl border border-white/10 shadow-lg relative">
-                    <div className="absolute top-1/2 left-2 -translate-y-1/2 w-4 flex items-center justify-center">
-                         {dayMasterElement === '木' ? <Leaf className="w-4 h-4 text-green-400" /> :
-                          dayMasterElement === '火' ? <Flame className="w-4 h-4 text-red-400" /> :
-                          dayMasterElement === '土' ? <Mountain className="w-4 h-4 text-yellow-400" /> :
-                          dayMasterElement === '金' ? <Shield className="w-4 h-4 text-slate-300" /> :
-                          <Droplets className="w-4 h-4 text-blue-400" />}
-                    </div>
-                    <div className="absolute top-1/2 left-8 -translate-y-1/2 text-xs text-white/90 font-bold whitespace-nowrap">
+                <div className="bg-black/60 backdrop-blur-md h-8 px-4 rounded-xl border border-white/10 shadow-lg flex items-center justify-center gap-2">
+                    {dayMasterElement === '木' ? <Leaf className="w-4 h-4 text-green-400" /> :
+                     dayMasterElement === '火' ? <Flame className="w-4 h-4 text-red-400" /> :
+                     dayMasterElement === '土' ? <Mountain className="w-4 h-4 text-yellow-400" /> :
+                     dayMasterElement === '金' ? <Shield className="w-4 h-4 text-slate-300" /> :
+                     <Droplets className="w-4 h-4 text-blue-400" />}
+                    <span className="text-xs text-white/90 font-bold whitespace-nowrap pt-[1px]">
                         {dayMasterElement}命
-                    </div>
+                    </span>
                 </div>
               </div>
 
