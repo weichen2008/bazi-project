@@ -193,12 +193,27 @@ const Home = () => {
           <div className="space-y-2">
             <label className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">出生时间</label>
             <div className="relative">
-              <Clock className="absolute left-3 top-3.5 w-5 h-5 text-slate-200" />
+              <Clock className="absolute left-3 top-3.5 w-5 h-5 text-slate-200 z-10" />
+              {/* Visible Input (Read Only) - Ensures consistent styling */}
               <input
-                type="time"
+                type="text"
+                readOnly
                 className="cyber-input pl-12"
                 value={formData.birthTime}
+              />
+              {/* Invisible Trigger */}
+              <input
+                type="time"
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
+                value={formData.birthTime}
                 onChange={(e) => setFormData({ ...formData, birthTime: e.target.value })}
+                onClick={(e) => {
+                  try {
+                    e.currentTarget.showPicker();
+                  } catch (error) {
+                    // ignore if not supported
+                  }
+                }}
               />
             </div>
           </div>
