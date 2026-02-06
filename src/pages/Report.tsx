@@ -16,6 +16,7 @@ import { calculateBazi } from '../utils/bazi';
 const Report = () => {
   const navigate = useNavigate();
   const { currentReport, currentInput, setReport } = useBaziStore();
+  // Ref for export
   const reportRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
